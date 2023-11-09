@@ -30,7 +30,7 @@ import mujoco
 import glfw
 from threading import Lock
 
-from icecream import ic
+# from icecream import ic
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -84,7 +84,8 @@ class _VIEWER_STATUS_MAP(IntFlag):
     STEP_BY_STEP            = (1<<22) # TODO: to implement on Engine side (unset bit unless engine resets it)
     RENDER_EVERY_FRAME      = (1<<23) # TODO: to be implemented
     # mux configs:
-    DEFAULT                 = GROUP_0 | GROUP_1 | GROUP_2 | GROUP_3 | SHADOWS
+    # DEFAULT                 = GROUP_0 | GROUP_1 | GROUP_2 | GROUP_3 | SHADOWS
+    DEFAULT                 = GROUP_1 | GROUP_2 | GROUP_3 | SHADOWS
 
 @dataclass
 class _CAMERA_DATA:
@@ -689,7 +690,7 @@ class MujocoViewer:
             camid = self._mj.camera_data.mj_cam.fixedcamid
             mj_timestep = self._mj.model.opt.timestep
             mj_data_time = self._mj.data.time
-            mj_data_solviter = self._mj.data.solver_iter
+            # mj_data_solviter = self._mj.data.solver_iter
         with self._gui_lock:
             frame_stamp = self._gui_data.frame_stamp
             frame_rendering_time = self._gui_data.frame_rendering_time
@@ -742,7 +743,7 @@ class MujocoViewer:
             },
             _BTM_LEFT: {
                 "FPS"                 : "%d" % (1/frame_rendering_time),
-                "Solver iterations"   : str(mj_data_solviter + 1),
+                # "Solver iterations"   : str(mj_data_solviter + 1),
                 "Step"                : str(round(mj_data_time / mj_timestep)),
                 "timestep"            : "%.5f" % mj_timestep,
             }
