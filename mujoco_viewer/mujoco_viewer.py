@@ -547,6 +547,7 @@ class MujocoViewer:
             rel_y = (vp_h - int(scale * (current_mouse_data.last_mouse_click_y))) / vp_h
             selected_pnt = np.zeros((3, 1), dtype=np.float64)
             selected_geom = np.zeros((1, 1), dtype=np.int32)
+            selected_flex = np.zeros((1, 1), dtype=np.int32)
             selected_skin = np.zeros((1, 1), dtype=np.int32)
             # apply selection:
             with self._mj_lock:
@@ -560,6 +561,7 @@ class MujocoViewer:
                     self._mj.config.scn,
                     selected_pnt,
                     selected_geom,
+                    selected_flex,
                     selected_skin
                 )
 
@@ -629,7 +631,7 @@ class MujocoViewer:
             mujoco.mjv_moveCamera(
                 self._mj.model, 
                 mujoco.mjtMouse.mjMOUSE_ZOOM,
-                0, -0.05 * current_mouse_data.y_offset_transient, 
+                0, 0.05 * current_mouse_data.y_offset_transient, 
                 self._mj.config.scn, self._mj.camera_data.mj_cam)
         
         with self._mouse_data_lock:
