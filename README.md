@@ -2,7 +2,7 @@
 
 Interactive renderer to use with the official Python bindings for MuJoCo 2.2.x
 
-+ Develop along with [jx-mujoco-python-engine](https://github.com/jaku-jaku/jx-mujoco-python-engine)
++ Develop along with [uwarl-mujoco-python-engine](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-engine)
 + A more efficient, robust and thread safe viewer with native MuJoCo 2.2.x with glfw
 + Works with Mac M1 with MuJoCo 2.2.x
 ## Points to ponder:
@@ -18,8 +18,8 @@ Interactive renderer to use with the official Python bindings for MuJoCo 2.2.x
 
 ## Install
 ```sh
-$ git clone https://github.com/jaku-jaku/jx-mujoco-python-viewer
-$ cd jx-mujoco-python-viewer
+$ git clone https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-viewer
+$ cd uwarl-mujoco-python-viewer
 $ pip install -e .
 ```
 
