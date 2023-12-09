@@ -17,7 +17,7 @@ setup(
     version=VERSION,
     author='Jack Xu',
     author_email='projectbyjx@gmail.com',
-    url='https://github.com/jaku-jaku/jx-mujoco-python-viewer',
+    url='https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-viewer',
     description='Interactive renderer for MuJoCo Python',
     long_description='Interactive renderer for MuJoCo Python, inspired by mujoco-python-viewer and mujoco-py',
     install_requires=INSTALL_REQUIRES,
