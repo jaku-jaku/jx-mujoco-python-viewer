@@ -941,17 +941,19 @@ class MujocoViewer:
                 camera.frame_stamp = self._gui_data.frame_stamp
                 
 
-    def acquire_sensor_camera_frames_safe(self):
+    def acquire_sensor_camera_frames_safe(self, write_to= None):
         camera_buffers = {"frame_buffer":{}, "depth_buffer":{}, "frame_stamp":{}}
         with self._camera_data_lock:
             for camera_name, camera in self._camera_data.items():
                 camera_buffers["depth_buffer"][camera_name] = copy.deepcopy(camera.depth_buffer)
                 camera_buffers["frame_buffer"][camera_name] = copy.deepcopy(camera.frame_buffer)
                 camera_buffers["frame_stamp"][camera_name] = copy.deepcopy(camera.frame_stamp)
-                # if write_to: [NOT-USED: Implementation to save frames directly]
+                # if write_to: #[NOT-USED: Implementation to save frames directly]
+                #     # img = cv2.cvtColor(camera_buffers["frame_buffer"][camera_name], cv2.COLOR_RGB2BGR)
+                #     img = cv2.flip(camera_buffers["frame_buffer"][camera_name], 0)
                 #     imageio.imwrite(
-                #         "{}/{}.png".format(write_to, camera_name.replace("\\", "_")), 
-                #         camera_buffers["frame_buffer"][camera_name]
+                #         "{}/{}.png".format(write_to, camera_name.replace("/", "_")), 
+                #         img
                 #     )
                 #     imageio.imwrite(
                 #         "{}/{}_gray.png".format(write_to, camera_name.replace("\\", "_")), 
